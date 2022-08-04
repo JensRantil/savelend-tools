@@ -102,3 +102,7 @@ Summary of marginal gains (positive is profit, negative is loss):
 
 (all percentages are yearly, before taxes and before service fee)
 ```
+
+Before running the simulation, make sure to review your max Savelend credit ratios [here][ratios]!
+
+[ratios]: https://github.com/JensRantil/savelend-tools/blob/1bc0532ad6b4157e42ebccc9e5f130a2cada2c6c/simulation.py#L95-L120
