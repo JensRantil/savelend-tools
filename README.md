@@ -83,21 +83,22 @@ NOTE! Your past credit history can generally *NOT* project your future history!
 Sample execution:
 ```sh
 ./simulation.py by_portfolio_api.json
+Initial amount:        10000.00 SEK
 Number of simulations: 10
 
 Summary of marginal gains (positive is profit, negative is loss):
-             Average: 6.46%
-     0th percentile:: 6.32%
-     1th percentile:: 6.32%
-     5th percentile:: 6.33%
-    10th percentile:: 6.35%
-    25th percentile:: 6.37%
-    50th percentile:: 6.44%
-    75th percentile:: 6.51%
-    90th percentile:: 6.60%
-    95th percentile:: 6.66%
-    99th percentile:: 6.70%
-   100th percentile:: 6.71%
+             Average: 6.48% (10647.99 SEK)
+     0th percentile:: 6.28% (10628.33 SEK)
+     1th percentile:: 6.30% (10629.61 SEK)
+     5th percentile:: 6.35% (10634.69 SEK)
+    10th percentile:: 6.41% (10641.05 SEK)
+    25th percentile:: 6.44% (10643.80 SEK)
+    50th percentile:: 6.49% (10649.49 SEK)
+    75th percentile:: 6.54% (10653.58 SEK)
+    90th percentile:: 6.58% (10657.61 SEK)
+    95th percentile:: 6.58% (10657.79 SEK)
+    99th percentile:: 6.58% (10657.94 SEK)
+   100th percentile:: 6.58% (10657.97 SEK)
 
 (all percentages are yearly)
 ```

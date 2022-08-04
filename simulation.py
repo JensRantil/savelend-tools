@@ -43,14 +43,19 @@ def run(args):
     outcomes = [math.pow(d, 365./args.time_horison) for d in outcomes]   # Normalise growth to a year.
     logging.debug('Simulation outcomes after normalisation: %s', outcomes)
 
+    print('Initial amount:       ', '{:.2f}'.format(args.initial_amount), 'SEK')
     print('Number of simulations:', len(outcomes))
     print()
-    
     print('Summary of marginal gains (positive is profit, negative is loss):')
-    template = '{0:>20}: {1:>5.2%}'
-    print(template.format('Average', numpy.mean(outcomes)-1))
+
+    template = '{0:>20}: {1:>5.2%} ({2:.2f} SEK)'
+    mean = numpy.mean(outcomes)
+    print(template.format('Average', mean-1, args.initial_amount * mean))
+
     for perc in (0, 1, 5, 10, 25, 50, 75, 90, 95, 99, 100):
-        print(template.format('{0}th percentile:'.format(perc), numpy.percentile(outcomes, perc)-1))
+        p = numpy.percentile(outcomes, perc)
+        print(template.format('{0}th percentile:'.format(perc), p-1, args.initial_amount * p))
+
     print()
     print('(all percentages are yearly)')
 
