@@ -74,9 +74,9 @@ Order depth (cumulative, interest included)
 
 This is a script that, based on past credits, executes a Monte Carlo simulation
 to estimate how your portfolio will behave in the future. The script uses the
-excellent [SimPy][simpy] for simulation. The tool in BETA stage and there were
-a few corner cases I haven't fixed yet. Also, it's really important to note
-that your past credit history can generally NOT project your future history!
+excellent [SimPy][simpy] for simulation.
+
+NOTE! Your past credit history can generally *NOT* project your future history!
 
 [simpy]: https://simpy.readthedocs.io
 
