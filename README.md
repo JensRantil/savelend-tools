@@ -1,4 +1,4 @@
-Savelend stats
+Savelend tools
 ==============
 [Savelend][savelend] is a Swedish peer-to-peer lending site similar to
 [LendingClub][lendingclub]. Unfortunately Savelend doesn't expose (IMO) enough
