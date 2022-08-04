@@ -40,7 +40,8 @@ repository and execute `pipenv shell`.
 
 ### `stats.py`
 
-This script extracts a bunch of insights from your credits. Here is an example output with some fake data:
+This script extracts a bunch of insights from your credits. Here is an example
+output with some fake data:
 ```sh
 $ ./stats.py by_portfolio_api_KORT_2022-08-03.json
 Statuses
