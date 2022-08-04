@@ -100,5 +100,5 @@ Summary of marginal gains (positive is profit, negative is loss):
     99th percentile:: 6.58% (10657.94 SEK)
    100th percentile:: 6.58% (10657.97 SEK)
 
-(all percentages are yearly)
+(all percentages are yearly, before taxes and before service fee)
 ```

@@ -57,7 +57,7 @@ def run(args):
         print(template.format('{0}th percentile:'.format(perc), p-1, args.initial_amount * p))
 
     print()
-    print('(all percentages are yearly)')
+    print('(all percentages are yearly, before taxes and before service fee)')
 
     return 0
 
