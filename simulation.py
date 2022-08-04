@@ -19,7 +19,7 @@ DEBUG=True
 
 def main(argv):
     parser = argparse.ArgumentParser(description='Monte Carlo simulation of a Savelend portfolio.')
-    parser.add_argument('by_portfolio_api', metavar='CREDITS_JSON', help='the JSON response containing the list of credits. See README for details how to extract it.')
+    parser.add_argument('by_portfolio_api', metavar='CREDITS_JSON', type=argparse.FileType(), help='the JSON response containing the list of credits. See README for details how to extract it.')
     parser.add_argument('--iterations', default=1000, type=int, help='number of Monte Carlo simulations to run.')
     parser.add_argument('--random-seed', type=int, help='seed for the random number generator. Useful to be able to recreate simulations.')
     parser.add_argument('--verbose', '-v', action='count', default=0)
@@ -35,8 +35,7 @@ def run(args):
     if args.random_seed:
         random.seed(args.random_seed)
 
-    with open(args.by_portfolio_api) as f:
-        data = json.load(f)
+    data = json.load(args.by_portfolio_api)
     decorate(data)
 
     outcomes = [simulate(args, data) / args.initial_amount for i in range(args.iterations)]
