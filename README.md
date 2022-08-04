@@ -68,3 +68,35 @@ Order depth (cumulative, interest included)
       90.0%          94 days, 0:00:00   53981.81 SEK
       99.0%         100 days, 0:00:00   70416.13 SEK
 ```
+
+### `simulation.py`
+
+This is a script that, based on past credits, executes a Monte Carlo simulation
+to estimate how your portfolio will go in the future. The script uses the
+excellent [SimPy][simpy] for simulation. The tool in BETA stage and there were
+a few corner cases I haven't fixed yet. Also, it's really important to note
+that your past credit history can generally NOT project your future history!
+
+[simpy]: https://simpy.readthedocs.io
+
+Sample execution:
+```sh
+./simulation.py by_portfolio_api.json
+Number of simulations: 10
+
+Summary of marginal gains (positive is profit, negative is loss):
+             Average: 6.46%
+     0th percentile:: 6.32%
+     1th percentile:: 6.32%
+     5th percentile:: 6.33%
+    10th percentile:: 6.35%
+    25th percentile:: 6.37%
+    50th percentile:: 6.44%
+    75th percentile:: 6.51%
+    90th percentile:: 6.60%
+    95th percentile:: 6.66%
+    99th percentile:: 6.70%
+   100th percentile:: 6.71%
+
+(all percentages are yearly)
+```
