@@ -4,12 +4,10 @@ import datetime
 import json
 import sys
 import collections
-import pprint
 
 def run(args):
     with open(args[1]) as f:
         data = json.load(f)
-    #pprint.pp(data)
     print_statuses(data)
     print_asset_classes(data)
     print_originator(data)
@@ -58,7 +56,6 @@ def print_order_depth(data):
         e['claimWithInterest'] = e['Claim']*(e['dailyInterest']**e['daysUntilExpectedEndDate'].days)
     data.sort(key=lambda x: x['daysUntilExpectedEndDate'])
     data = [[e['daysUntilExpectedEndDate'], e['claimWithInterest'], e] for e in data if e['Status']!='Repaid']
-    #pprint.pp(data)
 
     print_header("Order depth (cumulative, interest included)")
     percentiles = (0.05, 0.1, 0.25, 0.5, 0.75, 0.9, 0.99)
