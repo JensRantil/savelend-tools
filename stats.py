@@ -51,7 +51,8 @@ def print_order_depth(data):
     today = datetime.date.today()
     for e in data:
         e['daysUntilExpectedEndDate'] = datetime.date.fromisoformat(e['ExpectedEndDate'])-today
-        e['duration'] = datetime.date.fromisoformat(e['ExpectedEndDate']) - datetime.date.fromisoformat(e['CreditIssueDate'])
+        # Assumption here is that interest is the same after the loan is due. Maybe that's not correct?
+        e['duration'] = max(today, datetime.date.fromisoformat(e['ExpectedEndDate'])) - datetime.date.fromisoformat(e['CreditIssueDate'])
 
         e['dailyInterest'] = e['ExpectedAnnualInterest']**(1./365)
         e['claimWithInterest'] = e['Claim']*(1.+e['dailyInterest']**e['duration'].days)
