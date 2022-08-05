@@ -51,9 +51,10 @@ def print_order_depth(data):
     today = datetime.date.today()
     for e in data:
         e['daysUntilExpectedEndDate'] = datetime.date.fromisoformat(e['ExpectedEndDate'])-today
+        e['duration'] = datetime.date.fromisoformat(e['ExpectedEndDate']) - datetime.date.fromisoformat(e['CreditIssueDate'])
 
-        e['dailyInterest'] = (1.+e['ExpectedAnnualInterest'])**(1./365)
-        e['claimWithInterest'] = e['Claim']*(e['dailyInterest']**e['daysUntilExpectedEndDate'].days)
+        e['dailyInterest'] = e['ExpectedAnnualInterest']**(1./365)
+        e['claimWithInterest'] = e['Claim']*(1.+e['dailyInterest']**e['duration'].days)
     data.sort(key=lambda x: x['daysUntilExpectedEndDate'])
     data = [[e['daysUntilExpectedEndDate'], e['claimWithInterest'], e] for e in data if e['Status']!='Repaid']
 
