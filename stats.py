@@ -15,8 +15,11 @@ def run(args):
     return 0
 
 
+CLOSED_STATUSES = ('Repaid', 'Sold', 'CreditLoss')
+
+
 def print_originator(data):
-    dist = collections.Counter([e['Originator']+" (SBL Finans)" if e['Originator']=='Loanstep' else e['Originator'] for e in data if e['Status']!='Repaid'])
+    dist = collections.Counter([e['Originator']+" (SBL Finans)" if e['Originator']=='Loanstep' else e['Originator'] for e in data if e['Status'] not in CLOSED_STATUSES])
     print_header("Originators")
     for status, count in dist.items():
         s = "{0:>30}: {1:.2f}% ({2})".format(status, 100.0*count/len(data), count)
@@ -25,7 +28,7 @@ def print_originator(data):
 
 
 def print_asset_classes(data):
-    dist = collections.Counter([e['AssetClass'] for e in data if e['Status']!='Repaid'])
+    dist = collections.Counter([e['AssetClass'] for e in data if e['Status'] not in CLOSED_STATUSES])
     print_header("Asset classes")
     for status, count in dist.items():
         s = "{0:>20}: {1:.2f}% ({2})".format(status, 100.0*count/len(data), count)
