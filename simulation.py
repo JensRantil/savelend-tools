@@ -149,7 +149,7 @@ def consumer(env, loanid, credit, wallet, invested, claim):
     # Assumption autoinvest invests on the following day.
     yield env.timeout(1)
     days = credit['investmentDuration'].days
-    claimWithInterest = claim*(credit['dailyInterest']**days) if days > 14 else claim
+    claimWithInterest = claim*(credit['dailyInterest']**days) if days > 14 and credit['Status']!='CreditLoss' else claim
 
     loggingData = {'now': env.now, 'loanid': loanid, 'claim': claim, 'wallet.level': wallet.level, 'invested.level': invested.level, 'claimWithInterest': claimWithInterest, 'days': days}
     logging.info('Initiating a loan. Details: %s', loggingData)
